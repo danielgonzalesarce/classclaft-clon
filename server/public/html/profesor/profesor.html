@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel del Profesor</title>
+    <link rel="stylesheet" href="/css/profesor.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="perfil">
+            <img id="icono-perfil" src="" alt="Icono del profesor">
+            <span id="nombre-profesor"></span>
+        </div>
+        <button id="btn-configuracion">⚙️</button>
+    </header>
+
+    <main>
+        <aside class="menu">
+            <button type="button" onclick="mostrarSeccion('inicio')">🏠 Inicio</button>
+            <button type="button" onclick="mostrarSeccion('crear-clase')">🛠 Crear Clase</button>
+            <button type="button" onclick="mostrarSeccion('agregar-estudiantes')">👥 Agregar Estudiantes</button>
+            <button type="button" onclick="mostrarSeccion('llamar-alumno')">🎲 Llamar Alumno</button>
+            <button type="button" onclick="mostrarSeccion('calificar')">⭐ Calificar</button>
+        </aside>
+
+        <section id="inicio" class="seccion activa fondo-bienvenida">
+            <div class="overlay-bienvenida">
+                <h1>Bienvenido al Panel</h1>
+                <p>Selecciona una opción del menú para comenzar.</p>
+            </div>
+        </section>
+
+        <section id="crear-clase" class="seccion">
+            <h2>Crear Clase</h2>
+            <form id="form-clase">
+                <input type="text" id="nombreClase" placeholder="Nombre de la clase" required>
+                <button type="submit">Crear</button>
+            </form>
+        </section>
+
+        <section id="agregar-estudiantes" class="seccion">
+            <h2>Agregar Estudiantes</h2>
+            <form id="form-estudiantes" enctype="multipart/form-data">
+                <input type="file" id="archivoExcel" accept=".xlsx, .xls" required>
+                <button type="submit">Cargar Excel</button>
+            </form>
+        </section>
+
+        <section id="llamar-alumno" class="seccion">
+            <h2>🎲 Llamar Alumno Aleatorio</h2>
+            <button type="button" onclick="llamarAlumno()">Llamar</button>
+            <div id="resultado-alumno"></div>
+        </section>
+
+        <section id="calificar" class="seccion">
+            <h2>⭐ Calificar Alumno</h2>
+            <select id="selectAlumno"></select>
+            <div class="botones-calificacion">
+                <button type="button" onclick="calificar('+')">➕</button>
+                <button type="button" onclick="calificar('-')">➖</button>
+                <button type="button" onclick="calificar('gold')">🌟 GOLD</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/profesor.js"></script>
+</body>
+</html>

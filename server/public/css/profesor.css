@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111;
+    padding: 10px 20px;
+    border-bottom: 2px solid #00fff0;
+    z-index: 10;
+    position: relative;
+}
+
+.perfil {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#icono-perfil {
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid #00fff0;
+}
+
+#nombre-profesor {
+    font-size: 14px;
+    color: #00fff0;
+}
+
+#btn-configuracion {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    position: relative;
+    background-image: url('/img/classcraft-banner-image.png');
+    background-size: cover;
+    background-position: center;
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 0;
+}
+
+.menu {
+    background: #111;
+    padding: 20px;
+    width: 220px;
+    border-right: 2px solid #00fff0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.menu button {
+    background: linear-gradient(145deg, #00fff0, #00ccff);
+    border: 2px solid #00fff0;
+    color: #000;
+    padding: 14px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 11px;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+    transition: all 0.25s ease;
+    text-shadow: 0 1px 1px #00f2ff;
+}
+
+.menu button:hover {
+    background: linear-gradient(145deg, #00ccff, #00aaff);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00fff0;
+}
+
+.seccion {
+    display: none;
+    flex: 1;
+    padding: 40px;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 0.5s ease;
+}
+
+.seccion.activa {
+    display: block;
+}
+
+.seccion h2, .seccion form {
+    text-align: center;
+}
+
+/* Formulario visual */
+.seccion form {
+    max-width: 400px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+input, select {
+    font-family: 'Press Start 2P', cursive;
+    padding: 14px;
+    border-radius: 10px;
+    border: 2px solid #00fff0;
+    background: #000;
+    color: #00fff0;
+    font-size: 10px;
+    box-shadow: inset 0 0 8px rgba(0, 255, 255, 0.3);
+    transition: all 0.2s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 12px #00fff0;
+    border-color: #00ccff;
+    background: #111;
+}
+
+button {
+    background: linear-gradient(145deg, #00fff0, #00ccff);
+    color: #000;
+    font-family: 'Press Start 2P', cursive;
+    padding: 14px;
+    border-radius: 10px;
+    border: 2px solid #00fff0;
+    cursor: pointer;
+    font-size: 10px;
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+    transition: all 0.25s ease;
+}
+
+button:hover {
+    background: linear-gradient(145deg, #00ccff, #00aaff);
+    transform: scale(1.05);
+    box-shadow: 0 0 18px #00fff0;
+}
+
+.overlay-bienvenida {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Botones de calificación */
+.botones-calificacion {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.botones-calificacion button {
+    font-size: 12px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #ffd700, #ffaa00);
+    border: 2px solid #fff200;
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 230, 0, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.botones-calificacion button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #ffff00;
+}
+
+/* Imagen decorativa estilo personaje */
+.personaje-deco {
+    max-width: 180px;
+    display: block;
+    margin: 30px auto 10px;
+    animation: flotar 2s ease-in-out infinite;
+}
+
+/* Animación flotante */
+@keyframes flotar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Animación fadeIn */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}

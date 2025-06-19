@@ -1,0 +1,257 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* === TOPBAR === */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    height: 50px;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* === BOTONES NAV: INSCRÍBETE / INICIAR SESIÓN === */
+.btn-inscribete,
+.btn-iniciar {
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-weight: bold;
+    background: transparent;
+    color: #000;
+    border: 2px solid #ccc;
+    transition: background 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.btn-inscribete:hover,
+.btn-iniciar:hover {
+    background: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+/* === HERO SECTION === */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/classcraft-banner-image.png') no-repeat center center/cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero p {
+    color: white;
+    font-size: 24px;
+    max-width: 700px;
+    padding: 0 20px;
+}
+
+/* === INTRO SECTION === */
+.intro {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.intro h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.btn-verde {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-verde:hover {
+    background-color: #388e3c;
+    color: white;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.video-container img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* === HERRAMIENTAS === */
+.herramientas {
+    background: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.herramientas h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+}
+
+.imagenes-lms img {
+    width: 90%;
+    margin: 0 auto 30px;
+    display: block;
+}
+
+/* === BENEFICIOS === */
+.beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 0 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.beneficio {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.beneficio img {
+    width: 50px;
+    height: 50px;
+}
+
+/* === ESTADISTICAS === */
+.estadisticas {
+    background: #fff;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.estadisticas h2 {
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.datos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.datos div {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    font-size: 18px;
+    gap: 15px;
+}
+
+.datos strong {
+    font-size: 36px;
+    color: #4CAF50;
+    margin-right: 10px;
+}
+
+/* === TESTIMONIOS === */
+.testimonios {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 60px 20px;
+    background: #f0f0f0;
+}
+
+.testimonios h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-weight: bold;
+    color: #333;
+}
+
+.testimonio {
+    max-width: 300px;
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.testimonio img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 15px 0;
+}
+
+.testimonio blockquote {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* === BOTÓN HISTORIAS === */
+.btn-historias {
+    text-align: center;
+    margin: 40px;
+}
+
+.btn-historias button {
+    background: #2e7d32;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-historias button:hover {
+    background-color: #1b5e20;
+}
+
+/* === FOOTER === */
+.footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Iniciar Sesión - Classcraft</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <div class="form-container">
+        <h2>Inicia Sesión</h2>
+
+        <form id="loginForm">
+            <input type="email" name="correo" id="correo" placeholder="Correo electrónico" required>
+            <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" required>
+
+            <select name="rol" id="rol" required class="input-estilizado">
+                <option value="">Selecciona tu rol</option>
+                <option value="alumno">Alumno</option>
+                <option value="profesor">Profesor</option>
+            </select>
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <div id="mensaje-error"></div>
+
+        <p class="registro-link">
+            ¿No tienes una cuenta? <a href="/html/register.html">Regístrate aquí</a>
+        </p>
+
+        <img id="avatar" src="/img/avatar1.png" alt="Avatar de usuario">
+    </div>
+
+    <audio id="clickSound" src="/audio/click.wav" preload="auto"></audio>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            document.getElementById('clickSound').play();
+
+            const correo = document.getElementById('correo').value;
+            const rol = document.getElementById('rol').value;
+
+            if (rol === 'profesor') {
+                // Guardamos los datos del profesor (simulado)
+                const profesor = {
+                    nombre: correo.split('@')[0],
+                    foto: '/img/avatar1.png'
+                };
+                localStorage.setItem('profesor', JSON.stringify(profesor));
+                // ✅ Redirección corregida
+                window.location.href = '/html/profesor/profesor.html';
+            } else {
+                alert('Redirigiendo a panel de alumno...');
+                // Redirección simulada
+                // window.location.href = '/html/alumno/alumno.html';
+            }
+        });
+
+        const avatar = document.getElementById('avatar');
+        avatar.onmouseenter = () => avatar.src = "/img/avatar1-animado.gif";
+        avatar.onmouseleave = () => avatar.src = "/img/avatar1.png";
+    </script>
+
+    <script src="/js/particles.min.js"></script>
+    <script>
+        particlesJS.load('particles-js', '/js/particles.json', function () {
+            console.log('particles.js cargado');
+        });
+    </script>
+</body>
+</html>

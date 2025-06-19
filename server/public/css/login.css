@@ -1,0 +1,125 @@
+/* Fuente general */
+body {
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #000;
+    color: white;
+    overflow: hidden;
+}
+
+/* Fondo con partículas */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    margin: 10vh auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 2px solid #00fff0;
+    border-radius: 15px;
+    width: 420px;
+    text-align: center;
+    box-shadow: 0 0 25px #00fff0;
+    z-index: 1;
+}
+
+/* Entradas, selects y botones */
+input,
+select,
+button {
+    font-family: 'Press Start 2P', cursive;
+    padding: 12px;
+    width: 80%;
+    margin: 12px 0;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Estilo del <select> de rol (igual a register.css) */
+select {
+    background-color: #111;
+    color: #00fff0;
+    border: 1px solid #00fff0;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg fill='cyan' height='24' viewBox='0 0 24 24' width='24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+}
+
+/* Botón principal */
+button {
+    background-color: #00fff0;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #00ccff;
+}
+
+/* Avatar */
+#avatar {
+    margin-top: 20px;
+    width: 100px;
+    transition: transform 0.5s;
+}
+
+#avatar:hover {
+    transform: scale(1.1);
+}
+
+/* Mensaje de error */
+#mensaje-error {
+    font-size: 12px;
+    color: red;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Enlace de registro */
+.registro-link {
+    font-size: 10px;
+    color: #00fff0;
+    margin-top: 15px;
+}
+
+.registro-link a {
+    color: #00ccff;
+    text-decoration: none;
+    border-bottom: 1px dotted #00ccff;
+}
+
+.registro-link a:hover {
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .form-container {
+        width: 90%;
+    }
+
+    input,
+    select,
+    button {
+        font-size: 10px;
+        padding: 10px;
+    }
+
+    #avatar {
+        width: 80px;
+    }
+
+    .registro-link {
+        font-size: 10px;
+    }
+}
