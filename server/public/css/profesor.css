@@ -28,15 +28,23 @@ header {
 
 #icono-perfil {
     width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 2px solid #00fff0;
+    object-fit: cover;
+    background-color: #222;
 }
 
 #nombre-profesor {
     font-size: 14px;
     color: #00fff0;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+/* ⚙️ Botón de configuración */
 #btn-configuracion {
     background: transparent;
     border: none;
@@ -45,12 +53,53 @@ header {
     cursor: pointer;
 }
 
+/* 🔧 Menú de configuración */
+.config-wrapper {
+    position: relative;
+}
+
+.menu-config {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: #111;
+    border: 2px solid #00fff0;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 100;
+    padding: 10px;
+    width: 200px;
+}
+
+.menu-config.visible {
+    display: flex;
+}
+
+.menu-config button {
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    text-align: left;
+    padding: 8px;
+    transition: color 0.2s ease;
+}
+
+.menu-config button:hover {
+    color: #00fff0;
+}
+
+/* 🎮 Panel Principal */
 main {
     display: flex;
     flex: 1;
     height: 100%;
     position: relative;
-    background-image: url('/img/classcraft-banner-image.png');
+    background-image: url('/img/fondo-profesor.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -63,6 +112,7 @@ main::before {
     z-index: 0;
 }
 
+/* 🎮 Menú lateral */
 .menu {
     background: #111;
     padding: 20px;
@@ -94,6 +144,7 @@ main::before {
     box-shadow: 0 0 25px #00fff0;
 }
 
+/* 🧱 Secciones */
 .seccion {
     display: none;
     flex: 1;
@@ -108,11 +159,12 @@ main::before {
     display: block;
 }
 
-.seccion h2, .seccion form {
+.seccion h2,
+.seccion form {
     text-align: center;
 }
 
-/* Formulario visual */
+/* Formulario */
 .seccion form {
     max-width: 400px;
     margin: 0 auto;
@@ -127,7 +179,8 @@ main::before {
     margin-top: 30px;
 }
 
-input, select {
+input,
+select {
     font-family: 'Press Start 2P', cursive;
     padding: 14px;
     border-radius: 10px;
@@ -139,7 +192,8 @@ input, select {
     transition: all 0.2s ease;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
     outline: none;
     box-shadow: 0 0 12px #00fff0;
     border-color: #00ccff;
@@ -197,23 +251,26 @@ button:hover {
     box-shadow: 0 0 25px #ffff00;
 }
 
-/* Imagen decorativa estilo personaje */
-.personaje-deco {
-    max-width: 180px;
-    display: block;
-    margin: 30px auto 10px;
-    animation: flotar 2s ease-in-out infinite;
-}
-
-/* Animación flotante */
+/* Animaciones */
 @keyframes flotar {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
-/* Animación fadeIn */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

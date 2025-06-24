@@ -1,75 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Iniciar Sesión - Classcraft</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/login.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 </head>
 <body>
     <div id="particles-js"></div>
 
     <div class="form-container">
         <h2>Inicia Sesión</h2>
-
         <form id="loginForm">
-            <input type="email" name="correo" id="correo" placeholder="Correo electrónico" required>
-            <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" required>
-
-            <select name="rol" id="rol" required class="input-estilizado">
+            <input type="email" id="correo" placeholder="Correo" required />
+            <input type="password" id="contrasena" placeholder="Contraseña" required />
+            <select id="rol" required>
                 <option value="">Selecciona tu rol</option>
                 <option value="alumno">Alumno</option>
                 <option value="profesor">Profesor</option>
             </select>
-
+            <div id="codigoClaseContainer" style="display: none;">
+                <input type="text" id="codigoClase" placeholder="Código de clase" />
+            </div>
             <button type="submit">Entrar</button>
         </form>
 
         <div id="mensaje-error"></div>
 
-        <p class="registro-link">
-            ¿No tienes una cuenta? <a href="/html/register.html">Regístrate aquí</a>
-        </p>
-
-        <img id="avatar" src="/img/avatar1.png" alt="Avatar de usuario">
+        <p class="registro-link">¿No tienes una cuenta? <a href="/html/register.html">Regístrate aquí</a></p>
+        <img id="avatar" src="/img/logoSolo.png" alt="Avatar" />
     </div>
 
-    <audio id="clickSound" src="/audio/click.wav" preload="auto"></audio>
+    <audio id="clickSound" src="/sounds/click.mp3" preload="auto"></audio>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            document.getElementById('clickSound').play();
-
-            const correo = document.getElementById('correo').value;
-            const rol = document.getElementById('rol').value;
-
-            if (rol === 'profesor') {
-                // Guardamos los datos del profesor (simulado)
-                const profesor = {
-                    nombre: correo.split('@')[0],
-                    foto: '/img/avatar1.png'
-                };
-                localStorage.setItem('profesor', JSON.stringify(profesor));
-                // ✅ Redirección corregida
-                window.location.href = '/html/profesor/profesor.html';
-            } else {
-                alert('Redirigiendo a panel de alumno...');
-                // Redirección simulada
-                // window.location.href = '/html/alumno/alumno.html';
-            }
+        document.getElementById('rol').addEventListener('change', () => {
+            const valor = document.getElementById('rol').value;
+            document.getElementById('codigoClaseContainer').style.display = valor === 'alumno' ? 'block' : 'none';
         });
 
-        const avatar = document.getElementById('avatar');
-        avatar.onmouseenter = () => avatar.src = "/img/avatar1-animado.gif";
-        avatar.onmouseleave = () => avatar.src = "/img/avatar1.png";
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const correo = document.getElementById('correo').value.trim();
+            const contrasena = document.getElementById('contrasena').value.trim();
+            const rol = document.getElementById('rol').value;
+            const nombre = correo.split('@')[0];
+            const usuario = {
+                nombre: nombre.charAt(0).toUpperCase() + nombre.slice(1),
+                correo,
+                foto: '/img/logoSolo.png'
+            };
+
+            localStorage.setItem(rol, JSON.stringify(usuario));
+
+            if (rol === 'profesor') {
+                window.location.href = '/html/profesor/profesor.html';
+            } else {
+                window.location.href = '/html/alumno/alumno.html';
+            }
+        });
     </script>
 
     <script src="/js/particles.min.js"></script>
     <script>
-        particlesJS.load('particles-js', '/js/particles.json', function () {
-            console.log('particles.js cargado');
+        particlesJS.load('particles-js', '/js/particles.json');
+    </script>
+
+    <script>
+        const clickSound = document.getElementById('clickSound');
+        document.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.type === 'submit') {
+                if (clickSound) {
+                    clickSound.currentTime = 0;
+                    clickSound.play();
+                }
+            }
         });
     </script>
 </body>

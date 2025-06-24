@@ -2,69 +2,84 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>Registro - Classcraft</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
     <link rel="stylesheet" href="/css/registro.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="particles-js"></div>
-
     <div class="form-container">
         <h2>Registro</h2>
-        <form id="registroForm" action="/register" method="POST">
-            <input type="text" name="nombre" placeholder="Nombre" required>
-            <input type="email" name="correo" placeholder="Correo" required>
-            <input type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+        <form id="registroForm">
+            <input type="text" name="nombre" placeholder="Nombre completo" required>
+            <input type="email" name="correo" id="correo" placeholder="Correo" required>
+            <input type="password" id="contrasena" placeholder="Contraseña" required>
             <input type="password" id="confirmar" placeholder="Confirmar contraseña" required>
-
             <select id="rol" name="rol" required>
-                <option value="">Seleccione rol</option>
+                <option value="">Selecciona rol</option>
                 <option value="alumno">Alumno</option>
                 <option value="profesor">Profesor</option>
             </select>
-
-            <div id="codigoClaseContainer" style="display: none; margin-top: 10px;">
-                <input type="text" id="codigoClase" name="codigo_clase" placeholder="Código de clase">
+            <div id="codigoClaseContainer" style="display:none;">
+                <input type="text" id="codigoClase" placeholder="Código de clase">
             </div>
-
-            <button type="submit" id="btn-registro">Registrarse</button>
-            <p id="mensaje-error" style="display: none; color: red;"></p>
+            <button type="submit">Registrarse</button>
+            <p id="mensaje-error" style="color:red; display:none;"></p>
         </form>
-
-        <p class="login-link">
-            ¿Ya tiene una cuenta? <a href="/html/login.html">Conéctese aquí</a>
-        </p>
-
+        <p class="login-link">¿Ya tienes cuenta? <a href="/html/login.html">Inicia sesión</a></p>
         <img id="avatar" src="/img/logoSolo.png" alt="Avatar">
-        <audio id="clickSound" src="/audio/click.mp3" preload="auto"></audio>
     </div>
 
-    <!-- Scripts -->
+    <audio id="clickSound" src="/sounds/click.mp3" preload="auto"></audio>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const rolSelect = document.getElementById('rol');
-            const codigoClaseContainer = document.getElementById('codigoClaseContainer');
-            const form = document.getElementById('registroForm');
-            const contrasena = document.getElementById('contrasena');
-            const confirmar = document.getElementById('confirmar');
-            const mensajeError = document.getElementById('mensaje-error');
+        const rolSelect = document.getElementById('rol');
+        const codigoContainer = document.getElementById('codigoClaseContainer');
 
-            rolSelect.addEventListener('change', () => {
-                codigoClaseContainer.style.display = (rolSelect.value === 'alumno') ? 'block' : 'none';
-            });
+        rolSelect.addEventListener('change', () => {
+            codigoContainer.style.display = rolSelect.value === 'alumno' ? 'block' : 'none';
+        });
 
-            form.addEventListener('submit', (e) => {
-                if (contrasena.value !== confirmar.value) {
-                    e.preventDefault();
-                    mensajeError.textContent = 'Las contraseñas no coinciden';
-                    mensajeError.style.display = 'block';
-                }
-            });
+        document.getElementById('registroForm').addEventListener('submit', (e) => {
+            const contrasena = document.getElementById('contrasena').value;
+            const confirmar = document.getElementById('confirmar').value;
+            const mensaje = document.getElementById('mensaje-error');
+
+            if (contrasena !== confirmar) {
+                e.preventDefault();
+                mensaje.textContent = 'Las contraseñas no coinciden';
+                mensaje.style.display = 'block';
+                return;
+            }
+
+            const nombre = document.querySelector('input[name="nombre"]').value;
+            const correo = document.getElementById('correo').value;
+            const rol = document.getElementById('rol').value;
+
+            localStorage.setItem(rol, JSON.stringify({
+                nombre: nombre.split(' ')[0],
+                correo,
+                foto: '/img/logoSolo.png'
+            }));
         });
     </script>
 
     <script src="/js/particles.min.js"></script>
-    <script src="/js/particles-config.js"></script>
+    <script>
+        particlesJS.load('particles-js', '/js/particles.json');
+    </script>
+
+    <script>
+        const clickSound = document.getElementById('clickSound');
+        document.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.type === 'submit') {
+                if (clickSound) {
+                    clickSound.currentTime = 0;
+                    clickSound.play();
+                }
+            }
+        });
+    </script>
 </body>
 </html>

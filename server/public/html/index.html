@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Classcraft</title>
     <link rel="stylesheet" href="/css/stiles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <audio id="clickSound" src="/sounds/click.mp3" preload="auto"></audio>
 
+    <!-- 🔷 HEADER -->
     <header class="topbar">
-        <img src="/img/logo.png" alt="Classcraft Logo" class="logo">
+        <img src="/img/logo.png" alt="Classcraft Logo" class="logo" />
         <nav>
             <a href="#">Testimonios</a>
             <a href="#">Tarifa</a>
@@ -20,108 +24,145 @@
         </nav>
     </header>
 
+    <!-- 🔷 HERO -->
     <section class="hero">
         <div class="overlay">
-            <p>Transforma cualquier clase en un juego de rol que fomenta una colaboración más estrecha entre los estudiantes y alienta un mejor comportamiento.</p>
+            <p>
+                Transforma cualquier clase en un juego de rol que fomenta una colaboración más estrecha entre los
+                estudiantes y alienta un mejor comportamiento.
+            </p>
         </div>
     </section>
 
+    <!-- 🔷 INTRO -->
     <section class="intro">
         <h1>Haz tus clases inolvidables</h1>
         <button class="btn-verde">Empieza Ahora. ¡Es Gratis!</button>
+
         <div class="video-container">
-            <img src="/img/video.jpg" alt="Video Classcraft">
-            <p>Con el LMS de la <strong>gamificación de Classcraft</strong>, enseña su currículo actual y otorga puntos cuando los alumnos se ayudan entre ellos.</p>
+            <img src="/img/video.jpg" alt="Video Classcraft" />
+            <p>
+                Con el LMS de la <strong>gamificación de Classcraft</strong>, enseña tu currículo actual y otorga puntos
+                cuando los alumnos se ayudan entre ellos.
+            </p>
         </div>
     </section>
 
+    <!-- 🔷 HERRAMIENTAS -->
     <section class="herramientas">
         <h2><strong>Herramientas poderosas</strong> para <strong>impulsar el compromiso</strong></h2>
+
         <div class="imagenes-lms">
-            <img src="/img/pagina.png" alt="LMS Classcraft">
+            <img src="/img/pagina.png" alt="LMS Classcraft" style="max-width: 90%; margin: 2rem 0;" />
         </div>
+
         <div class="beneficios-grid">
             <div class="beneficio">
-                <img src="/img/logo1.png" alt="Ícono sonrisa">
-                <div>
-                    <h3>Mejora el Ambiente en la Clase</h3>
-                    <p>Incita a los alumnos con riesgos reales y recompensas en clase...</p>
-                </div>
+                <img src="/img/logo1.png" alt="Ícono sonrisa" />
+                <h3>Mejora el Ambiente en la Clase</h3>
+                <p>Incita a los alumnos con riesgos reales y recompensas en clase...</p>
             </div>
             <div class="beneficio">
-                <img src="/img/logo2.png" alt="Ícono libro">
-                <div>
-                    <h3>Da a las lecciones super poderes</h3>
-                    <p>Con el LMS de la gamificación de Classcraft...</p>
-                </div>
+                <img src="/img/logo2.png" alt="Ícono libro" />
+                <h3>Da a las lecciones super poderes</h3>
+                <p>Con el LMS de la gamificación de Classcraft...</p>
             </div>
             <div class="beneficio">
-                <img src="/img/logo3.png" alt="Ícono grupo">
-                <div>
-                    <h3>Enseña las habilidades del siglo 21</h3>
-                    <p>Desarrolla una colaboración significativa entre los alumnos...</p>
-                </div>
+                <img src="/img/logo3.png" alt="Ícono grupo" />
+                <h3>Enseña las habilidades del siglo 21</h3>
+                <p>Desarrolla una colaboración significativa entre los alumnos...</p>
             </div>
             <div class="beneficio">
-                <img src="/img/logo4.png" alt="Ícono estadística">
-                <div>
-                    <h3>El Conocimiento es Poder</h3>
-                    <p>Extiende el juego a los padres y permíteles otorgar puntos...</p>
-                </div>
+                <img src="/img/logo4.png" alt="Ícono estadística" />
+                <h3>El Conocimiento es Poder</h3>
+                <p>Extiende el juego a los padres y permíteles otorgar puntos...</p>
             </div>
             <div class="beneficio">
-                <img src="/img/logo5.png" alt="Ícono A+">
-                <div>
-                    <h3>Automatice Su Clase</h3>
-                    <p>Herramientas integradas para automatizar el seguimiento...</p>
-                </div>
+                <img src="/img/logo5.png" alt="Ícono A+" />
+                <h3>Automatice Su Clase</h3>
+                <p>Herramientas integradas para automatizar el seguimiento...</p>
             </div>
             <div class="beneficio">
-                <img src="/img/logo6.png" alt="Ícono teléfono">
-                <div>
-                    <h3>Colabore con los Padres</h3>
-                    <p>Utiliza Batallas de Jefe para crear maneras nuevas...</p>
-                </div>
+                <img src="/img/logo6.png" alt="Ícono teléfono" />
+                <h3>Colabore con los Padres</h3>
+                <p>Utiliza Batallas de Jefe para crear maneras nuevas...</p>
             </div>
         </div>
     </section>
 
+    <!-- 🔷 ESTADÍSTICAS -->
     <section class="estadisticas">
-        <h2>Después del Muestreo de <strong>Cientos de Maestros</strong>:</h2>
+        <h2>Después del muestreo de <strong>cientos de maestros</strong>:</h2>
         <div class="datos">
-            <div><strong>98%</strong><p>Incremento en compromiso</p></div>
-            <div><strong>99%</strong><p>Impacto positivo en comportamiento</p></div>
-            <div><strong>88%</strong><p>Incremento en rendimiento</p></div>
-            <div><strong>89%</strong><p>Incremento en eficacia</p></div>
+            <div><strong>98%</strong>
+                <p>Incremento en compromiso</p>
+            </div>
+            <div><strong>99%</strong>
+                <p>Impacto positivo en comportamiento</p>
+            </div>
+            <div><strong>88%</strong>
+                <p>Incremento en rendimiento</p>
+            </div>
+            <div><strong>89%</strong>
+                <p>Incremento en eficacia</p>
+            </div>
         </div>
     </section>
 
+    <!-- 🔷 TESTIMONIOS -->
     <section class="testimonios">
         <h2>Testimonios de experiencia</h2>
-        <div class="testimonio">
-            <blockquote>"Classcraft ha salvado mi clase!"</blockquote>
-            <img src="/img/persona1.jpg" alt="Testimonio 1">
-            <p>Conferencista, Teatro y Debate, Texas</p>
-        </div>
-        <div class="testimonio">
-            <blockquote>"Subí de C a A en Biología en un mes."</blockquote>
-            <img src="/img/persona2.jpg" alt="Testimonio 2">
-            <p>Rebecca Claiborne, Bióloga</p>
-        </div>
-        <div class="testimonio">
-            <blockquote>"¡Toda la clase se esfuerza por su equipo!"</blockquote>
-            <img src="/img/persona3.jpg" alt="Testimonio 3">
-            <p>Darren McDavid, Corea del Sur</p>
+        <div class="testimonios-row">
+            <div class="testimonio">
+                <blockquote>"Classcraft ha salvado mi clase!"</blockquote>
+                <img src="/img/persona1.jpg" alt="Testimonio 1" />
+                <p>Conferencista, Teatro y Debate, Texas</p>
+            </div>
+            <div class="testimonio">
+                <blockquote>"Subí de C a A en Biología en un mes."</blockquote>
+                <img src="/img/persona2.jpg" alt="Testimonio 2" />
+                <p>Rebecca Claiborne, Bióloga</p>
+            </div>
+            <div class="testimonio">
+                <blockquote>"¡Toda la clase se esfuerza por su equipo!"</blockquote>
+                <img src="/img/persona3.jpg" alt="Testimonio 3" />
+                <p>Darren McDavid, Corea del Sur</p>
+            </div>
         </div>
     </section>
 
+    <!-- 🔷 BOTÓN HISTORIAS -->
     <div class="btn-historias">
         <button>LEE LAS HISTORIAS DEL MAESTRO</button>
     </div>
 
+    <!-- 🔷 FOOTER -->
     <footer class="footer">
         <p>Ⓐ Tecsup - Hecho por Gonzales Arce Daniel y Ramos Asbel</p>
     </footer>
 
+    <!-- 🔉 SONIDO CLICK -->
+    <script>
+        const clickSound = document.getElementById('clickSound');
+        function agregarSonidoClick(elementos) {
+            elementos.forEach(el => {
+                el.addEventListener('click', () => {
+                    clickSound.currentTime = 0;
+                    clickSound.play();
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            agregarSonidoClick([
+                ...document.querySelectorAll('button'),
+                ...document.querySelectorAll('a'),
+                ...document.querySelectorAll('input'),
+                ...document.querySelectorAll('select'),
+                ...document.querySelectorAll('img')
+            ]);
+        });
+    </script>
 </body>
+
 </html>

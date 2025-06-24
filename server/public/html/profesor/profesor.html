@@ -7,24 +7,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <header class="topbar">
         <div class="perfil">
             <img id="icono-perfil" src="" alt="Icono del profesor">
-            <span id="nombre-profesor"></span>
+            <span id="nombre-profesor">Profesor</span>
         </div>
-        <button id="btn-configuracion">⚙️</button>
+        <div class="config-wrapper">
+            <button id="btn-configuracion">⚙️</button>
+            <div class="menu-config" id="menu-config">
+                <button onclick="cerrarSesion()">🔒 Cerrar sesión</button>
+                <button onclick="cambiarCuenta()">🔁 Cambiar de cuenta</button>
+                <button onclick="eliminarCuenta()">🗑 Eliminar cuenta</button>
+            </div>
+        </div>
     </header>
 
     <main>
         <aside class="menu">
-            <button type="button" onclick="mostrarSeccion('inicio')">🏠 Inicio</button>
-            <button type="button" onclick="mostrarSeccion('crear-clase')">🛠 Crear Clase</button>
-            <button type="button" onclick="mostrarSeccion('agregar-estudiantes')">👥 Agregar Estudiantes</button>
-            <button type="button" onclick="mostrarSeccion('llamar-alumno')">🎲 Llamar Alumno</button>
-            <button type="button" onclick="mostrarSeccion('calificar')">⭐ Calificar</button>
+            <button onclick="mostrarSeccion('inicio')">🏠 Inicio</button>
+            <button onclick="mostrarSeccion('crear-clase')">🛠 Crear Clase</button>
+            <button onclick="mostrarSeccion('agregar-estudiantes')">👥 Agregar Estudiantes</button>
+            <button onclick="mostrarSeccion('llamar-alumno')">🎲 Llamar Alumno</button>
+            <button onclick="mostrarSeccion('calificar')">⭐ Calificar</button>
+            <button onclick="mostrarSeccion('mis-clases')">📚 Mis Clases</button>
         </aside>
 
-        <section id="inicio" class="seccion activa fondo-bienvenida">
+        <section id="inicio" class="seccion activa">
             <div class="overlay-bienvenida">
                 <h1>Bienvenido al Panel</h1>
                 <p>Selecciona una opción del menú para comenzar.</p>
@@ -49,7 +57,7 @@
 
         <section id="llamar-alumno" class="seccion">
             <h2>🎲 Llamar Alumno Aleatorio</h2>
-            <button type="button" onclick="llamarAlumno()">Llamar</button>
+            <button onclick="llamarAlumno()">Llamar</button>
             <div id="resultado-alumno"></div>
         </section>
 
@@ -57,13 +65,33 @@
             <h2>⭐ Calificar Alumno</h2>
             <select id="selectAlumno"></select>
             <div class="botones-calificacion">
-                <button type="button" onclick="calificar('+')">➕</button>
-                <button type="button" onclick="calificar('-')">➖</button>
-                <button type="button" onclick="calificar('gold')">🌟 GOLD</button>
+                <button onclick="calificar('positivo')">➕</button>
+                <button onclick="calificar('negativo')">➖</button>
+                <button onclick="calificar('gold')">🌟 GOLD</button>
+            </div>
+        </section>
+
+        <section id="mis-clases" class="seccion">
+            <h2>📚 Mis Clases</h2>
+            <div id="lista-clases" class="lista-clases">
+                <p>Cargando clases...</p>
             </div>
         </section>
     </main>
 
+    <audio id="sonido-click" src="/sounds/click.mp3" preload="auto"></audio>
     <script src="/js/profesor.js"></script>
+
+    <script>
+        const clickSound = document.getElementById('sonido-click');
+        document.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A' || e.target.type === 'submit') {
+                if (clickSound) {
+                    clickSound.currentTime = 0;
+                    clickSound.play();
+                }
+            }
+        });
+    </script>
 </body>
 </html>

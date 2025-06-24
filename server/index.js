@@ -4,18 +4,19 @@ const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
-const db = require('./models/db');
 
 const app = express();
 const PORT = 3000;
 
+// 🧠 Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// 🧱 Ruta pública de archivos
+// 🧱 Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/sounds', express.static(path.join(__dirname, 'public/sounds')));
 
-// 🧠 Sesión
+// 🧠 Sesiones
 app.use(session({
     secret: 'classcraft-secret',
     resave: false,
@@ -23,11 +24,11 @@ app.use(session({
     cookie: { httpOnly: true }
 }));
 
-// 🎨 (opcional si no usas EJS)
+// 🎨 Motor de vistas (opcional)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// 🏠 Ruta base
+// 🏠 Ruta principal
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/html/index.html'));
 });
@@ -38,7 +39,7 @@ const profesorRoutes = require('./routes/profesor');
 app.use('/', authRoutes);
 app.use('/', profesorRoutes);
 
-// 🔊 Servidor
+// 🔊 Iniciar servidor
 app.listen(PORT, () => {
     console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
 });
